@@ -1,0 +1,60 @@
+﻿<Page x:Class="Assignment_2.AddressBook"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Assignment_2"
+      mc:Ignorable="d" 
+      d:DesignHeight="709" d:DesignWidth="900"
+      Title="AddressBook">
+    <Page.Resources>
+        <DataTemplate x:Key="ListBoxItemTemplate">
+            <Grid>
+                <Label Content="{Binding FirstName}"  FontSize="12" HorizontalAlignment="Left" Margin="3,2,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
+                <Label Content="{Binding LastName}"  FontSize="12" HorizontalAlignment="Left" Margin="73,2,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
+                <Label Content="{Binding CompanyName}"  FontSize="12" HorizontalAlignment="Left" Margin="143,2,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
+                <Label Content="{Binding JobTitle}"  FontSize="12" HorizontalAlignment="Left" Margin="213,2,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
+                <Label Content="{Binding Email}"  FontSize="12" HorizontalAlignment="Left" Margin="283,2,0,0" VerticalAlignment="Top" Width="120" Height="27"/>
+                <Label Content="{Binding Address}"  FontSize="12" HorizontalAlignment="Left" Margin="403,2,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
+                <Label Content="{Binding CountryCode}"  FontSize="12" HorizontalAlignment="Left" Margin="473,2,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
+                <Label Content="{Binding PhNumber}"  FontSize="12" HorizontalAlignment="Left" Margin="543,2,0,0" VerticalAlignment="Top" Width="70" Height="27"/>
+                <Label Content="{Binding Photo}"  FontSize="12" HorizontalAlignment="Left" Margin="613,2,0,0" VerticalAlignment="Top" Width="170" Height="27"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Margin="0,0,0,0" >
+        <Label Content="Address Book" Width="140" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16" FontFamily="Algerian" Margin="0,24,0,0" />
+        <Separator Margin="0,59,0,644" HorizontalAlignment="Center" Width="600"/>
+        <ListBox x:Name="listBox" ItemTemplate="{DynamicResource ListBoxItemTemplate}" Margin="375,120,50,189" Height="400" SelectionChanged="listBox_SelectionChanged"/>
+        <Label Content="Contact List" Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" FontFamily="Algerian" Margin="375,79,0,0" />
+        <Button x:Name="btn_return" Content="return" HorizontalAlignment="Left" Margin="20,565,0,0" VerticalAlignment="Top" Width="67" Height="26" FontSize="14" FontFamily="Arial" Background="#FF97D8A6" Click="btn_return_Click"/>
+        <Label Content="FirstName" HorizontalAlignment="Left" Margin="20,120,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_firstName" Text="{Binding ElementName=listBox, Path=SelectedItem.FirstName, Mode=OneWay}" HorizontalAlignment="Left" Margin="133,120,0,0" Padding="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+        <Label Content="LastName" HorizontalAlignment="Left" Margin="20,169,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_lastName" Text="{Binding ElementName=listBox, Path=SelectedItem.LastName, Mode=OneWay}" HorizontalAlignment="Left" Margin="133,169,0,0" Padding="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+        <Label Content="Company" HorizontalAlignment="Left" Margin="20,215,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_company" Text="{Binding ElementName=listBox, Path=SelectedItem.CompanyName, Mode=OneWay}" HorizontalAlignment="Left" Margin="133,215,0,0" Padding="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+        <Label Content="JobTitle" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_jobTitle" Text="{Binding ElementName=listBox, Path=SelectedItem.JobTitle, Mode=OneWay}" HorizontalAlignment="Left" Margin="133,260,0,0" Padding="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="20,307,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_email" Text="{Binding ElementName=listBox, Path=SelectedItem.Email, Mode=OneWay}" HorizontalAlignment="Left" Margin="133,307,0,0" Padding="10,4,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="192" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="20,354,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_address" Text="{Binding ElementName=listBox, Path=SelectedItem.Address, Mode=OneWay}" HorizontalAlignment="Left" Margin="133,355,0,0" Padding="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+        <Label Content="PH#" HorizontalAlignment="Left" Margin="20,399,0,0" VerticalAlignment="Top" Width="79" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_ph" Text="{Binding ElementName=listBox, Path=SelectedItem.PhNumber, Mode=OneWay}" HorizontalAlignment="Left" Margin="193,399,0,0" Padding="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+        <Label Content="Photo" HorizontalAlignment="Left" Margin="20,494,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontFamily="Arial"/>
+        <Button x:Name="btn_add" Content="ADD" HorizontalAlignment="Left" Margin="290,564,0,0" VerticalAlignment="Top" Width="68" Height="26" FontSize="14" FontFamily="Arial" Background="#FFF7F7F2" Click="btn_add_Click" RenderTransformOrigin="0.279,0.615"/>
+        <Button x:Name="btn_update" Content="UPDATE" HorizontalAlignment="Left" Margin="198,564,0,0" VerticalAlignment="Top" Width="67" Height="26" FontSize="14" FontFamily="Arial" Background="#FFF7F7F2" RenderTransformOrigin="0.313,0.423" Click="btn_update_Click"/>
+        <Button x:Name="btn_delete" Content="DELETE" HorizontalAlignment="Left" Margin="108,564,0,0" VerticalAlignment="Top" Width="67" Height="26" FontSize="14" FontFamily="Arial" Background="#FFF7F7F2" Click="btn_delete_Click"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="515,565,0,0" VerticalAlignment="Top" Width="65" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_search" HorizontalAlignment="Left" Margin="585,564,0,0" Padding="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2" TextChanged="txtBox_search_TextChanged"/>
+        <Image x:Name="img_user" HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="182" Opacity="0.9" Margin="133,476,0,0" OpacityMask="#FF0F0101"/>
+        <Button x:Name="btn_clear" Content="CLEAR" HorizontalAlignment="Left" Margin="382,564,0,0" VerticalAlignment="Top" Width="68" Height="26" FontSize="14" FontFamily="Arial" Background="#FFF7F7F2" Click="btn_clear_Click"/>
+        <Button x:Name="btn_search" Content="Search" HorizontalAlignment="Left" Margin="782,564,0,0" VerticalAlignment="Top" Width="68" Height="26" FontSize="14" FontFamily="Arial" Background="#FFF7F7F2" RenderTransformOrigin="0.358,0.5" Click="btn_search_Click"/>
+        <Label Content="Status" HorizontalAlignment="Left" Margin="515,614,0,0" VerticalAlignment="Top" Width="65" FontSize="14" FontFamily="Arial"/>
+        <Label x:Name="lbl_sts" Content="-" HorizontalAlignment="Left" Margin="585,614,0,0" VerticalAlignment="Top" Width="265" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_phCountryCode" Text="{Binding ElementName=listBox, Path=SelectedItem.CountryCode, Mode=OneWay}" HorizontalAlignment="Left" Margin="133,399,0,0" Padding="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+        <Label Content="PhotoAddress" HorizontalAlignment="Left" Margin="19,444,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontFamily="Arial"/>
+        <TextBox x:Name="txtBox_photoAddress" Text="{Binding SelectedItem.Photo, ElementName=listBox, Mode=OneWay}" HorizontalAlignment="Left" Margin="132,445,0,0" Padding="10,4,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="192" Height="26" FontSize="14" FontFamily="Arial" BorderBrush="#FFCDC7C7" Background="#f7f7f2"/>
+    </Grid>
+</Page>
